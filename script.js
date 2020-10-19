@@ -34,7 +34,15 @@ const myQuestions = [
   },
 ];
 
-function buildQuiz() {}
+function buildQuiz() {
+  // slide to display current question
+  output.push(
+    `<div class="slide">
+    <div class="question"> ${currentQuestion.question} </div>
+    <div class="answers"> ${answers.join("")} </div>
+    </div>`
+  );
+}
 // showing quiz results
 function showResults() {
 
