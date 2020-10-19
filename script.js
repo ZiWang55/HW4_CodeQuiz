@@ -34,6 +34,14 @@ const myQuestions = [
     },
     {
         question: "Which tool can you use to ensure code quality?",
-        
+        answers: {
+            a: "Angular",
+            b: "jQuery",
+            c: "RequireJS",
+            d: "ESLint"
+        },
+        correctAnswer: "d"
     }
-]
+];
+
+function buildQuiz()
