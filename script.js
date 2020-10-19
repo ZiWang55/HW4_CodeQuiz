@@ -40,8 +40,6 @@ const myQuestions = [
 // variables for navigation buttons
 // same code
 
-
-
 function buildQuiz() {
   //adds pagination divs
   output.push(
@@ -60,63 +58,72 @@ let currentSlide = 0;
 // show first slide here
 showSlide(currentSlide);
 
-// eventListeners
+// eventListeners for slide
+previousButton.addEventListener("click", showPreivousSlide);
+nextButton.addEventListener("click", showNextSlide);
 // new eventListeners
 
 // showing quiz results
 function showResults() {
-
   // gethering answers
-  const answerContainers = quizContainer.querySelectorAll('.answers');
+  const answerContainers = quizContainer.querySelectorAll(".answers");
   // keep track of user answers
   let numCorrect = 0;
 
   // for each question
-  myQuestions.forEach( (currentQuestion, questionNumber) => {
-
+  myQuestions.forEach((currentQuestion, questionNumber) => {
     // find selected answer
     const answerContainer = answerContainers[questionNumber];
     const selector = `input[name=question${questionNumber}]:checked`;
     const userAnswer = (answerContainer.querySelector(selector) || {}).value;
 
     // if answer is correct
-    if(userAnswer === currentQuestion.correctAnswer){
+    if (userAnswer === currentQuestion.correctAnswer) {
       // add to the number of correct answers
       numCorrect++;
 
       // color the answers green
-      answerContainers[questionNumber].getElementsByClassName.color='lightgreen';
-      }
-      // if answer is wrong or blank
-      else{
-        // color the answers red
-        answerContainers[questionNumber].style.color='red';
-      }
+      answerContainers[questionNumber].getElementsByClassName.color =
+        "lightgreen";
+    }
+    // if answer is wrong or blank
+    else {
+      // color the answers red
+      answerContainers[questionNumber].style.color = "red";
+    }
   });
-// show number of correct answers from total
-resultsContainer.innerHTML = `${numCorrect} out of ${myQuestions.length}`;
+  // show number of correct answers from total
+  resultsContainer.innerHTML = `${numCorrect} out of ${myQuestions.length}`;
 }
 
 // function for showing slide
 function showSlide(n) {
-  slides[currentSlide].classList.remove('active-slide');
-  slides[n].classList.add('active-slide');
+  slides[currentSlide].classList.remove("active-slide");
+  slides[n].classList.add("active-slide");
   currentSlide = n;
-  if(currentSlide === 0){
-    previousButton.style.display = 'none';
+  if (currentSlide === 0) {
+    previousButton.style.display = "none";
+  } else {
+    previousButton.style.display = "inline-block";
   }
-  else{
-    previousButton.style.display = 'inline-block';
-  }
-  if(currentSlide === slides.legnth-1){
-    nextButton.style.display = 'none';
-    submitButton.style.dsiplay = 'inline-block';
-  }
-  else{
-    nextButton.style.display = 'inline-block';
-    submitButton.style.display = 'none';
+  if (currentSlide === slides.legnth - 1) {
+    nextButton.style.display = "none";
+    submitButton.style.dsiplay = "inline-block";
+  } else {
+    nextButton.style.display = "inline-block";
+    submitButton.style.display = "none";
   }
 }
+
+// functions for showSlide
+function showNextSlide() {
+  showSlide(currentSlide + 1);
+}
+
+function showPreviousSlide() {
+  showSlide(currentSlide - 1);
+}
+
 // display quiz
 buildQuiz();
 
