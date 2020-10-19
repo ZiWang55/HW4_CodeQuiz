@@ -34,34 +34,19 @@ const myQuestions = [
   },
 ];
 
-// functions
-// new functions
-
-// variables for navigation buttons
-// same code
-
+// function for displaying current question
 function buildQuiz() {
-  //adds pagination divs
   output.push(
-    `<div class="slide">
-    <div class="question"> ${currentQuestion.question} </div>
-    <div class="answers"> ${answers.join("")} </div>
-    </div>`
+  `<div class="slide">
+  <div class="question"> ${currentQuestion.question} </div>
+  <div class="answers"> ${answers.join("")} </div>
+  </div>`
   );
 }
 
-// pagination variables
-const previousButton = document.getElementById("previous");
-const nextButton = document.getElementById("next");
-const slides = document.querySelectorAll(".slide");
-let currentSlide = 0;
-// show first slide here
-showSlide(currentSlide);
 
-// eventListeners for slide
-previousButton.addEventListener("click", showPreivousSlide);
-nextButton.addEventListener("click", showNextSlide);
-// new eventListeners
+
+
 
 // showing quiz results
 function showResults() {
@@ -127,8 +112,20 @@ function showPreviousSlide() {
 // display quiz
 buildQuiz();
 
+// pagination variables
+const previousButton = document.getElementById("previous");
+const nextButton = document.getElementById("next");
+const slides = document.querySelectorAll(".slide");
+let currentSlide = 0;
+
+// show first slide here
+showSlide(currentSlide);
+
 // on submit, show results
 submitButton.addEventListener("click", showResults);
+// eventListeners for slide
+previousButton.addEventListener("click", showPreivousSlide);
+nextButton.addEventListener("click", showNextSlide);
 
 function buildQuiz() {
   // variable for storing HTML output
