@@ -34,8 +34,16 @@ const myQuestions = [
   },
 ];
 
+// functions
+// new functions
+
+// variables for navigation buttons
+// same code
+
+
+
 function buildQuiz() {
-  // slide to display current question
+  //adds pagination divs
   output.push(
     `<div class="slide">
     <div class="question"> ${currentQuestion.question} </div>
@@ -43,6 +51,18 @@ function buildQuiz() {
     </div>`
   );
 }
+
+// pagination variables
+const previousButton = document.getElementById("previous");
+const nextButton = document.getElementById("next");
+const slides = document.querySelectorAll(".slide");
+let currentSlide = 0;
+// show first slide here
+showSlide(currentSlide);
+
+// eventListeners
+// new eventListeners
+
 // showing quiz results
 function showResults() {
 
@@ -77,6 +97,26 @@ function showResults() {
 resultsContainer.innerHTML = `${numCorrect} out of ${myQuestions.length}`;
 }
 
+// function for showing slide
+function showSlide(n) {
+  slides[currentSlide].classList.remove('active-slide');
+  slides[n].classList.add('active-slide');
+  currentSlide = n;
+  if(currentSlide === 0){
+    previousButton.style.display = 'none';
+  }
+  else{
+    previousButton.style.display = 'inline-block';
+  }
+  if(currentSlide === slides.legnth-1){
+    nextButton.style.display = 'none';
+    submitButton.style.dsiplay = 'inline-block';
+  }
+  else{
+    nextButton.style.display = 'inline-block';
+    submitButton.style.display = 'none';
+  }
+}
 // display quiz
 buildQuiz();
 
