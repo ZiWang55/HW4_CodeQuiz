@@ -1,52 +1,37 @@
-// variables
-const quizContainer = document.getElementById("quiz");
-const resultsContainer = document.getElementById("results");
-const submitButton = document.getElementById("submit");
-// questions in arrays
-const myQuestions = [
-  {
-    question: "Who invented JavaScript?",
-    answers: {
-      a: "Douglas Crockford",
-      b: "Sheryl Sandberg",
-      c: "Brendan Eich",
-    },
-    correctAnswer: "c",
-  },
-  {
-    question: "Which oneo f these is a JavaScript package manager?",
-    answers: {
-      a: "Node.js",
-      b: "TypeScript",
-      c: "npm",
-    },
-    correctAnswer: "c",
-  },
-  {
-    question: "Which tool can you use to ensure code quality?",
-    answers: {
-      a: "Angular",
-      b: "jQuery",
-      c: "RequireJS",
-      d: "ESLint",
-    },
-    correctAnswer: "d",
-  },
-];
-
 // function for displaying current question
 function buildQuiz() {
-  output.push(
-  `<div class="slide">
-  <div class="question"> ${currentQuestion.question} </div>
-  <div class="answers"> ${answers.join("")} </div>
-  </div>`
-  );
+  // variable for storing HTML output
+  const output = [];
+
+  // for each question
+  myQuestions.forEach((currentQuestion, questionNumber) => {
+    // variable for list of possible answers
+    const answers = [];
+
+    // for each available answer
+    for (letter in currentQuestion.answers) {
+      // HTML radio button
+      answers.push(
+        `<label>
+                <input type="radio" name="question${questionNumber}" value="${letter}">
+                    ${letter} :
+                    ${currentQuestion.answers[letter]}
+                </label>`
+      );
+    }
+
+    // add this question and its answers to the output
+    output.push(
+      `<div class="slide">
+      <div class="question"> ${currentQuestion.question} </div>
+            <div class="answers"> ${answers.join("")} </div>
+            </div>`
+    );
+  });
+
+  // combine output list into one string of HTML and put it on the page
+  quizContainer.innerHTML = output.join("");
 }
-
-
-
-
 
 // showing quiz results
 function showResults() {
@@ -88,13 +73,15 @@ function showSlide(n) {
   currentSlide = n;
   if (currentSlide === 0) {
     previousButton.style.display = "none";
-  } else {
+  } 
+  else {
     previousButton.style.display = "inline-block";
   }
   if (currentSlide === slides.legnth - 1) {
     nextButton.style.display = "none";
     submitButton.style.dsiplay = "inline-block";
-  } else {
+  } 
+  else {
     nextButton.style.display = "inline-block";
     submitButton.style.display = "none";
   }
@@ -108,6 +95,42 @@ function showNextSlide() {
 function showPreviousSlide() {
   showSlide(currentSlide - 1);
 }
+
+// variables
+const quizContainer = document.getElementById("quiz");
+const resultsContainer = document.getElementById("results");
+const submitButton = document.getElementById("submit");
+// questions in arrays
+const myQuestions = [
+  {
+    question: "Who invented JavaScript?",
+    answers: {
+      a: "Douglas Crockford",
+      b: "Sheryl Sandberg",
+      c: "Brendan Eich",
+    },
+    correctAnswer: "c",
+  },
+  {
+    question: "Which one of these is a JavaScript package manager?",
+    answers: {
+      a: "Node.js",
+      b: "TypeScript",
+      c: "npm",
+    },
+    correctAnswer: "c",
+  },
+  {
+    question: "Which tool can you use to ensure code quality?",
+    answers: {
+      a: "Angular",
+      b: "jQuery",
+      c: "RequireJS",
+      d: "ESLint",
+    },
+    correctAnswer: "d",
+  },
+];
 
 // display quiz
 buildQuiz();
@@ -124,37 +147,5 @@ showSlide(currentSlide);
 // on submit, show results
 submitButton.addEventListener("click", showResults);
 // eventListeners for slide
-previousButton.addEventListener("click", showPreivousSlide);
+previousButton.addEventListener("click", showPreviousSlide);
 nextButton.addEventListener("click", showNextSlide);
-
-function buildQuiz() {
-  // variable for storing HTML output
-  const output = [];
-
-  // for each question
-  myQuestions.forEach((currentQuestion, questionNumber) => {
-    // variable for list of possible answers
-    const answers = [];
-
-    // for each available answer
-    for (letter in currentQuestion.answers) {
-      // HTML radio button
-      answers.push(
-        `<label>
-                <input type="radio" name="question${questionNumber}" value="${letter}">
-                    ${letter} :
-                    ${currentQuestion.answers[letter]}
-                </label>`
-      );
-    }
-
-    // add this question and its answers to the output
-    output.push(
-      `<div class="question"> ${currentQuestion.question} </div>
-            <div class="answers"> ${answers.join("")} </div>`
-    );
-  });
-
-  // combine output list into one string of HTML and put it on the page
-  quizContainer.innerHTML = output.join("");
-}
