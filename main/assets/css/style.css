@@ -39,7 +39,7 @@ margin: auto;
     margin-top: 40px;
 }
 /* this structure was taken from w3schools example and personalized */
-.button{
+button{
     background-color:#008CBA; 
   border: none;
   color: white;

@@ -132,6 +132,8 @@ const myQuestions = [
   },
 ];
 
+// start quiz function
+
 // display quiz
 buildQuiz();
 
