@@ -77,9 +77,9 @@ function showSlide(n) {
   else {
     previousButton.style.display = "inline-block";
   }
-  if (currentSlide === slides.legnth - 1) {
+  if (currentSlide === slides.length - 1) {
     nextButton.style.display = "none";
-    submitButton.style.dsiplay = "inline-block";
+    submitButton.style.display = "inline-block";
   } 
   else {
     nextButton.style.display = "inline-block";
