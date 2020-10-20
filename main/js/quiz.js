@@ -75,15 +75,13 @@ function showSlide(n) {
   currentSlide = n;
   if (currentSlide === 0) {
     previousButton.style.display = "none";
-  } 
-  else {
+  } else {
     previousButton.style.display = "inline-block";
   }
   if (currentSlide === slides.length - 1) {
     nextButton.style.display = "none";
     submitButton.style.display = "inline-block";
-  } 
-  else {
+  } else {
     nextButton.style.display = "inline-block";
     submitButton.style.display = "none";
   }
