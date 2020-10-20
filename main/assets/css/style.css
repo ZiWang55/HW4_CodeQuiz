@@ -1,5 +1,14 @@
-/* adds pagination styling for buildQuiz in JS */
 
+/* score */
+#results {
+
+}
+
+/* timer styling */
+#count {
+    position: relative;
+    margin: auto;
+}
 /* slide container */
 .slide{
     font-size: 30px;
@@ -48,3 +57,4 @@ margin: auto;
     background-color: #4CAF50; /* Green */
     color: white;
 }
+
