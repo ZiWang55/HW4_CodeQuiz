@@ -1,3 +1,5 @@
+// QUIZ QUESTIONS, ANSWERS AND RESULTS
+
 // function for displaying current question
 function buildQuiz() {
   // variable for storing HTML output
