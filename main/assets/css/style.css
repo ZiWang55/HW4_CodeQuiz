@@ -1,18 +1,24 @@
 
 /* score */
-#results
+
 
 /* timer styling */
 #count {
     position: relative;
     margin: auto;
 }
+
+#startscreen{
+   
+    background-color: blue;
+    padding: 100px;
+}
 /* slide container */
 .slide{
     font-size: 30px;
     font-weight: bold;
     text-align: center;
-    position: absolute;
+    position: relative;
     left: 0px;
     top: 0px;
     width: 100%;
@@ -28,7 +34,7 @@
 }
 /* main container */
 .quiz-container{
-margin: auto;
+   visibility: hidden;
   padding: 1em;
   border: 0.5em solid black;
   width: 35em;

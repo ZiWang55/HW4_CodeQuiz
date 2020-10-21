@@ -16,7 +16,10 @@ function startTimer(){
 }
 function start()
 {
+  document.getElementById("startscreen").style="visibility: hidden;";
+
     document.getElementById("count").style="color:green;";
     startTimer();
+    // document.getElementById("quiz-container").style="visibility: hidden;";
 };
 
