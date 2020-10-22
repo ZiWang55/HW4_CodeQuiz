@@ -1,6 +1,32 @@
 // QUIZ QUESTIONS, ANSWERS AND RESULTS
+// variables
+let currentQuestionIndex = 0
+let time = questions.length * 15;
+let timerId;
 
+const questionsEl = document.getElementById("questions");
+const timerEl = document.getElementById("time");
+const choicesEl = document.getElementById("choices");
+const submitBtn = document.getElementById("submit");
+const startBtn = document.getElementById("start");
+const initialsEl = document.getElementById("initials");
+const feedbackEl = document.getElementById("feedback");
 
+// questions in arrays
+// start quiz function
+function start() {
+  var startScreenEl = document.getElementById("startscreen");
+  startScreenEl.setAttribute("class", "hide");
+
+  questionsEl.removeAttribute("class");
+
+  timerId = setInterval(clockTick, 1000);
+  
+  timerEl.textContent = time;
+
+  getQuestion()
+
+}
 // function for displaying current question
 function buildQuiz() {
   // variable for storing HTML output
@@ -70,76 +96,18 @@ function showResults() {
   resultsContainer.innerHTML = `${numCorrect} out of ${myQuestions.length}`;
 }
 
-// function for showing slide
-function showSlide(n) {
-  slides[currentSlide].classList.remove("active-slide");
-  slides[n].classList.add("active-slide");
-  currentSlide = n;
-  if (currentSlide === 0) {
-    previousButton.style.display = "none";
-  } else {
-    previousButton.style.display = "inline-block";
-  }
-  if (currentSlide === slides.length) {
-    nextButton.style.display = "none";
-    submitButton.style.display = "inline-block";
-    endscreen.style.display = "block";
-queContainer.style.display = "none";
-showResults()
-  } else {
-    nextButton.style.display = "inline-block";
-    submitButton.style.display = "none";
-  }
-}
 
-// functions for showSlide
-function showNextSlide() {
-  if(currentSlide < slides.length -1 ) {
-    currentSlide++
-      showSlide(currentSlide);
-  }
-else {
-  nextButton.style.display = "none";
-  submitButton.style.display = "inline-block";
-  endscreen.style.display = "block";
-queContainer.style.display = "none";
-showResults()
-}
-}
 
-function showPreviousSlide() {
-  showSlide(currentSlide - 1);
-}
 let score = 0
 
-// variables
-const quizContainer = document.getElementById("quiz");
-const resultsContainer = document.getElementById("results");
-const submitButton = document.getElementById("submit");
-const queContainer = document.querySelector(".quiz-container")
-const endscreen = document.getElementById("endscreen");
-endscreen.style.display = "none";
-queContainer.style.display = "none";
-// questions in arrays
-// start quiz function
+
 
 // display quiz
 buildQuiz();
 
-// pagination variables
-const previousButton = document.getElementById("previous");
-const nextButton = document.getElementById("next");
-const slides = document.querySelectorAll(".slide");
-let currentSlide = 0;
+
 
 // show first slide here
-showSlide(currentSlide);
-
-// on submit, show results
-submitButton.addEventListener("click", saveUser);
-// eventListeners for slide
-previousButton.addEventListener("click", showPreviousSlide);
-nextButton.addEventListener("click", showNextSlide);
 
 
 
@@ -159,13 +127,7 @@ function startTimer(){
 }
 
 
-function start() {
-  var x = document.getElementById("startscreen");
-  queContainer.style.display = "block";
-  x.style.display = "none";
- 
- startTimer()
-}
+
 
 function saveUser () {
   let user = document.getElementById("name").value;
