@@ -25,7 +25,7 @@ function start() {
   // show the timer
   timerEl.textContent = time;
 
-  buildQuiz()
+  buildQuiz();
 
 }
 // function for displaying current question
@@ -47,7 +47,7 @@ function buildQuiz() {
     choiceNode.setAttribute("class", "choice");
     choiceNode.setAttribute("value", choice);
 
-choicesEl.textContent = i +1 ". " + choice;
+choiceNode.textContent = i +1 + ". " + choice;
     // add eventListner for each choice
     choiceNode.onclick = questionClick;
 
@@ -80,6 +80,7 @@ function questionClick() {
     getQuestion();
   }
 }
+
 function quizEnd() {
   // timer stop
   clearInterval(timerId);
@@ -95,6 +96,20 @@ function quizEnd() {
   // hide question
   questionsEl.setAttribute("class", "hide");
 }
+
+
+
+function clockTick() {
+  // time update
+  time--;
+  timerEl.textContent = time;
+
+  // endquiz when out of time
+  if(time <= 0) {
+    quizEnd();
+  }
+}
+
 function highScore() {
 
   let initials = initialsEl.value.trim();
@@ -117,18 +132,19 @@ function highScore() {
     window.localStorage.href = "highscores.html";
   }
 }
-function clockTick() {
-  // time update
-  time--;
-  timerEl.textContent = time;
 
-  // endquiz when out of time
-  if(time <= 0) {
-    quizEnd();
+function checkForEnter(event) {
+  if (event.key === "Enter") {
+    highScore();
   }
 }
-// user click start button here
+
+// user click submit button
+submitBtn.onclick = highScore;
+// user click start button 
 startBtn.onclick = start;
+
+initialsEl.onkeyup = checkForEnter;
 // OLD CODE, DID NOT ACHEIVE WHAT I WANTED AND WAS TOO COMPLICATED.
 //     // for each available answer
 //     for (letter in currentQuestion.answers) {

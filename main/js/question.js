@@ -1,19 +1,19 @@
-const myQuestions = [
+const questions = [
     {
-      question: "Who invented JavaScript?",
+      title: "Who invented JavaScript?",
       choices: ["Douglas Crockford","Sheryl Sandberg","Brendan Eich"],
        
-      correctAnswer: "Brendan Eich"
+      answer: "Brendan Eich"
     },
     {
-      question: "Which one of these is a JavaScript package manager?",
+      title: "Which one of these is a JavaScript package manager?",
       choices: ["Node.js","TypeScript","npm"],
   
-      correctAnswer: "npm"
+      answer: "npm"
     },
     {
-      question: "Which tool can you use to ensure code quality?",
+      title: "Which tool can you use to ensure code quality?",
       choices: ["Angular","jQuery","RequireJS","ESLint" ],
-      correctAnswer: "ESLint"
+      answer: "ESLint"
     },
   ];
