@@ -95,7 +95,28 @@ function quizEnd() {
   // hide question
   questionsEl.setAttribute("class", "hide");
 }
+function highScore() {
 
+  let initials = initialsEl.value.trim();
+// making sure no empty value
+  if (initials !== "") {
+    var highscores =
+    JSON.parse(window.localStorage.getItem("highscores")) || [];
+
+    // new score for current user
+    let newScore = {
+      score: time,
+      initials: initials
+    };
+
+    // saving to localstorage
+    highscoer.push(newScore);
+    window.localStorage.setItem("highscores", JSON.stringify(highscores));
+
+    // direct to next page
+    window.localStorage.href = "highscores.html";
+  }
+}
 function clockTick() {
   // time update
   time--;
