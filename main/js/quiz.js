@@ -1,5 +1,6 @@
 // QUIZ QUESTIONS, ANSWERS AND RESULTS
 
+
 // function for displaying current question
 function buildQuiz() {
   // variable for storing HTML output
@@ -65,6 +66,7 @@ function showResults() {
     }
   });
   // show number of correct answers from total
+  score=numCorrect;
   resultsContainer.innerHTML = `${numCorrect} out of ${myQuestions.length}`;
 }
 
@@ -78,9 +80,12 @@ function showSlide(n) {
   } else {
     previousButton.style.display = "inline-block";
   }
-  if (currentSlide === slides.length - 1) {
+  if (currentSlide === slides.length) {
     nextButton.style.display = "none";
     submitButton.style.display = "inline-block";
+    endscreen.style.display = "block";
+queContainer.style.display = "none";
+showResults()
   } else {
     nextButton.style.display = "inline-block";
     submitButton.style.display = "none";
@@ -89,17 +94,32 @@ function showSlide(n) {
 
 // functions for showSlide
 function showNextSlide() {
-  showSlide(currentSlide + 1);
+  if(currentSlide < slides.length -1 ) {
+    currentSlide++
+      showSlide(currentSlide);
+  }
+else {
+  nextButton.style.display = "none";
+  submitButton.style.display = "inline-block";
+  endscreen.style.display = "block";
+queContainer.style.display = "none";
+showResults()
+}
 }
 
 function showPreviousSlide() {
   showSlide(currentSlide - 1);
 }
+let score = 0
 
 // variables
 const quizContainer = document.getElementById("quiz");
 const resultsContainer = document.getElementById("results");
 const submitButton = document.getElementById("submit");
+const queContainer = document.querySelector(".quiz-container")
+const endscreen = document.getElementById("endscreen");
+endscreen.style.display = "none";
+queContainer.style.display = "none";
 // questions in arrays
 const myQuestions = [
   {
@@ -147,7 +167,44 @@ let currentSlide = 0;
 showSlide(currentSlide);
 
 // on submit, show results
-submitButton.addEventListener("click", showResults);
+submitButton.addEventListener("click", saveUser);
 // eventListeners for slide
 previousButton.addEventListener("click", showPreviousSlide);
 nextButton.addEventListener("click", showNextSlide);
+
+
+
+function startTimer(){
+  var counter = 40;
+  setInterval(function() {
+    counter--;
+    if (counter >= 0) {
+      span = document.getElementById("count");
+      span.innerHTML = counter;
+    }
+    if (counter === 0) {
+        alert('sorry, out of time');
+        clearInterval(counter);
+    }
+  }, 1000);
+}
+
+
+function start() {
+  var x = document.getElementById("startscreen");
+  queContainer.style.display = "block";
+  x.style.display = "none";
+ 
+ startTimer()
+}
+
+function saveUser () {
+  let user = document.getElementById("name").value;
+  var userList = JSON.parse(localStorage.getItem("userDetails"))||[]
+  userList.push({
+    user:user,
+    score:score,
+  })
+  localStorage.setItem("userDetails",JSON.stringify(userList))
+  console.log(user);
+}

@@ -1,25 +1,8 @@
-// TIMER
-
-function startTimer(){
-  var counter = 40;
-  setInterval(function() {
-    counter--;
-    if (counter >= 0) {
-      span = document.getElementById("count");
-      span.innerHTML = counter;
-    }
-    if (counter === 0) {
-        alert('sorry, out of time');
-        clearInterval(counter);
-    }
-  }, 1000);
+var userDetails = JSON.parse(localStorage.getItem("userDetails"))||[];
+var htmlScreen = ""
+console.log(userDetails);
+for (let i = 0; i < userDetails.length; i++) {
+htmlScreen += `<h4>User :${userDetails[i].user} ---- Score: ${userDetails[i].score}</h4>`
+// htmlScreen += userDetails[i]
 }
-function start()
-{
-  document.getElementById("startscreen").style="visibility: hidden;";
-
-    document.getElementById("count").style="color:green;";
-    startTimer();
-    // document.getElementById("quiz-container").style="visibility: hidden;";
-};
-
+document.querySelector("#highscore").innerHTML=htmlScreen;
