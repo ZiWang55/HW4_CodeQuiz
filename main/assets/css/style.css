@@ -1,21 +1,22 @@
-
+/* 
 /* score */
 
-
+/*  *
 /* timer styling */
-#count {
+/*  */
+/* #count {
     position: relative;
     margin: auto;
-}
+} */
 
-#startscreen{
+/* #startscreen{
    
     background-color: blue;
     padding: 100px;
-}
+} */
 /* slide container */
-.slide{
-    font-size: 30px;
+/* .slide{ */
+    /* font-size: 30px;
     font-weight: bold;
     text-align: center;
     position: relative;
@@ -26,15 +27,15 @@
     opacity: 0;
     transition: opacity 0.5s;
     height: 150px;
-}
+} */
 /* current question container */
-.active-slide{
+/* .active-slide{
     background-color: orange;
     opacity: 1;
     z-index: 2;
 }
 /* main container */
-.quiz-container{
+/* .quiz-container{
   padding: 1em;
   border: 0.5em solid black;
   width: 35em;
@@ -43,9 +44,9 @@
     position: relative;
     height: 150px;
     
-}
+} */ 
 /* this structure was taken from w3schools example and personalized */
-button{
+/* button{
     background-color:#008CBA; 
   border: none;
   color: white;
@@ -55,10 +56,10 @@ button{
   display: inline-block;
   font-size: 16px;
   transition-duration: 0.4s;
-}
+} */
 /* mouse over color fade and change */
-.button:hover{
+/* .button:hover{
     background-color: #4CAF50; /* Green */
-    color: white;
-}
-
+    /* color: white;
+} */
+ 

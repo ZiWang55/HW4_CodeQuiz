@@ -1,6 +1,5 @@
-
 // variables
-let currentQuestionIndex = 0
+let currentQuestionIndex = 0;
 let time = questions.length * 15;
 let timerId;
 
@@ -12,26 +11,24 @@ let startBtn = document.getElementById("start");
 let initialsEl = document.getElementById("initials");
 let feedbackEl = document.getElementById("feedback");
 
-
 // start quiz function
 function start() {
   // hide start screen
   var startScreenEl = document.getElementById("startscreen");
   startScreenEl.setAttribute("class", "hide");
-// show question
+  // show question
   questionsEl.removeAttribute("class");
-// start timer
+  // start timer
   timerId = setInterval(clockTick, 1000);
   // show the timer
   timerEl.textContent = time;
 
   buildQuiz();
-
 }
 // function for displaying current question
 function buildQuiz() {
   // get current question
- let currentQuestion = questions[currentQuestionIndex];
+  let currentQuestion = questions[currentQuestionIndex];
 
   // for each question title
   let titleEl = document.getElementById("quiz-title");
@@ -41,13 +38,13 @@ function buildQuiz() {
   choicesEl.innerHTML = "";
 
   // loop choices
-  currentQuestion.choices.forEach(function(choice, i) {
+  currentQuestion.choices.forEach(function (choice, i) {
     // create button for choice
     let choiceNode = document.createElement("button");
     choiceNode.setAttribute("class", "choice");
     choiceNode.setAttribute("value", choice);
 
-choiceNode.textContent = i +1 + ". " + choice;
+    choiceNode.textContent = i + 1 + ". " + choice;
     // add eventListner for each choice
     choiceNode.onclick = questionClick;
 
@@ -58,9 +55,9 @@ choiceNode.textContent = i +1 + ". " + choice;
 
 function questionClick() {
   // if wrong
-  if(this.value !== question[currentQuestionIndex].answer) {
+  if (this.value !== questions[currentQuestionIndex].answer) {
     // time penalty
-    time -=10;
+    time -= 10;
 
     if (time < 0) {
       time = 0;
@@ -68,7 +65,18 @@ function questionClick() {
 
     // display time on page
     timerEl.textContent = time;
+
+    feedbackEl.textContent = "Wrong!";
+  } else {
+
+    feedbackEl.textContent = "Correct!";
   }
+
+  // flash feedback on page 
+  feedbackEl.setAttribute("class", "feedback");
+  setTimeout(function () {
+    feedbackEl.setAttribute("class", "feedback hide");
+  }, 1000);
 
   // next question
   currentQuestionIndex++;
@@ -77,7 +85,7 @@ function questionClick() {
   if (currentQuestionIndex === questions.length) {
     quizEnd();
   } else {
-    getQuestion();
+    buildQuiz();
   }
 }
 
@@ -90,14 +98,12 @@ function quizEnd() {
   endScreenEl.removeAttribute("class");
 
   // show score
-  let finalScoreEl = doucment.getElementById("final-score");
+  let finalScoreEl = document.getElementById("final-score");
   finalScoreEl.textContent = time;
 
   // hide question
   questionsEl.setAttribute("class", "hide");
 }
-
-
 
 function clockTick() {
   // time update
@@ -105,27 +111,26 @@ function clockTick() {
   timerEl.textContent = time;
 
   // endquiz when out of time
-  if(time <= 0) {
+  if (time <= 0) {
     quizEnd();
   }
 }
 
 function highScore() {
-
   let initials = initialsEl.value.trim();
-// making sure no empty value
+  // making sure no empty value
   if (initials !== "") {
-    var highscores =
-    JSON.parse(window.localStorage.getItem("highscores")) || [];
+    let highscores =
+      JSON.parse(window.localStorage.getItem("highscores")) || [];
 
     // new score for current user
     let newScore = {
       score: time,
-      initials: initials
+      initials: initials,
     };
 
     // saving to localstorage
-    highscoer.push(newScore);
+    highscores.push(newScore);
     window.localStorage.setItem("highscores", JSON.stringify(highscores));
 
     // direct to next page
@@ -141,7 +146,7 @@ function checkForEnter(event) {
 
 // user click submit button
 submitBtn.onclick = highScore;
-// user click start button 
+// user click start button
 startBtn.onclick = start;
 
 initialsEl.onkeyup = checkForEnter;
@@ -205,20 +210,12 @@ initialsEl.onkeyup = checkForEnter;
 //   resultsContainer.innerHTML = `${numCorrect} out of ${myQuestions.length}`;
 // }
 
-
-
 // let score = 0
-
-
 
 // // display quiz
 // buildQuiz();
 
-
-
 // // show first slide here
-
-
 
 // function startTimer(){
 //   var counter = 40;
@@ -234,9 +231,6 @@ initialsEl.onkeyup = checkForEnter;
 //     }
 //   }, 1000);
 // }
-
-
-
 
 // function saveUser () {
 //   let user = document.getElementById("name").value;
