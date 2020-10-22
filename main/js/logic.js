@@ -80,6 +80,21 @@ function questionClick() {
     getQuestion();
   }
 }
+function quizEnd() {
+  // timer stop
+  clearInterval(timerId);
+
+  // show end screen
+  let endScreenEl = document.getElementById("endscreen");
+  endScreenEl.removeAttribute("class");
+
+  // show score
+  let finalScoreEl = doucment.getElementById("final-score");
+  finalScoreEl.textContent = time;
+
+  // hide question
+  questionsEl.setAttribute("class", "hide");
+}
 
 function clockTick() {
   // time update
