@@ -9,9 +9,11 @@
   </head>
   
   <body>
+    <!-- link to highscore html  -->
+    <div class="scores"><a href="highscore.html">view highscores</a></div>
     <!-- timer -->
-    <span id="count">time</span> seconds
-<a href="highscore.html">High Score</a>
+    <div class="timer">Time: <span id="time">0</span></div> 
+
    <div class="wrapper">
      <!-- start screen -->
      <div id="startscreen" class="start">
@@ -20,25 +22,22 @@
   Welcome to Javascript quiz, make sure to answer all questions within the time shown! Have fun!
 </p>
 <!-- start quiz button -->
-<button onclick="start()">
-  START
-  </button>
+<button id="start">Start Quiz</button>
      </div>
 
-    <div class="quiz-container">
+    <div id="questions" class="hide">
       <!-- display of quiz -->
-      <div id="quiz"></div>
+      <div id="quiz-title"></div>
+      <!-- display of choices -->
+      <div id="choices" class="choices"></div>
          <!-- previous button -->
-    <button class="button" id="previous">Previous Question</button>
-    <!-- next button -->
-    <button class="button" id="next">Next Question</button>
-
+    
     </div>
 
     <div id="endscreen" class="hide">
     <h1>Quiz Finished!</h1> 
     <!-- results -->
-    <p> Here is your score  <span id="results"></span>.</p> 
+    <p> Here is your final score  <span id="results"></span>.</p> 
     <!-- user score -->
       Enter Name: <input type="text" id="name" />
       <!-- submit button -->
@@ -48,8 +47,8 @@
   
    </div>
     <!-- link to Javascript -->
-    <script src="./js/quiz.js"></script>
-    <script src="./js/timer.js"></script>
+    <script src="./js/logic.js"></script>
+    <script src="./js/question.js"></script>
   </body>
 </html>
 
