@@ -2,11 +2,10 @@
 
 
 /* score styling */
-a:link{
-    background-color: orange;
-}
+
 a:hover{
     color: greenyellow;
+    transition-duration: 0.5s;
 }
 .scores{
     text-align: center;
