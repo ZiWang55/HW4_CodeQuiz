@@ -122,7 +122,6 @@ function highScore() {
   if (initials !== "") {
     let highscores =
       JSON.parse(window.localStorage.getItem("highscores")) || [];
-
     // new score for current user
     let newScore = {
       score: time,
@@ -134,7 +133,7 @@ function highScore() {
     window.localStorage.setItem("highscores", JSON.stringify(highscores));
 
     // direct to next page
-    window.localStorage.href = "highscores.html";
+    window.location.href = "/main/highscores.html";
   }
 }
 
