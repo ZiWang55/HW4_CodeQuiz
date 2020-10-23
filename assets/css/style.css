@@ -1,45 +1,43 @@
 /* styling for all pages here */
 
-
 /* score styling */
 
-a:hover{
-    color: greenyellow;
-    transition-duration: 0.5s;
+a:hover {
+  color: greenyellow;
+  transition-duration: 0.3s;
 }
-.scores{
-    text-align: center;
-    padding: 40px;
-    
-    font-weight: 600;
-    font-size: 30px;
-    
+.scores {
+  text-align: center;
+  padding: 40px;
+
+  font-weight: 600;
+  font-size: 30px;
 }
 
 /* timer styling */
-.timer{
-    text-align: center;
-    font-weight: bold;
-    color: red;
-    font-size: 40px;
+.timer {
+  text-align: center;
+  font-weight: bold;
+  color: red;
+  font-size: 40px;
 }
 /*  */
 
-body{
-    background-color: lightgrey;
+body {
+  background-color: lightgrey;
 }
-#startscreen{
-    text-align: center;
-    background-color: lightblue;
-    padding: 100px;
-    border: lightgray 20px;
-    width: 600px;
-    margin: auto;
+#startscreen {
+  text-align: center;
+  background-color: lightblue;
+  padding: 100px;
+  border: lightgray 20px;
+  width: 600px;
+  margin: auto;
 }
 
 /* this structure was taken from w3schools example and personalized */
-button{
-    background-color:#008CBA; 
+button {
+  background-color: #008cba;
   border: none;
   color: white;
   padding: 15px 32px;
@@ -50,21 +48,18 @@ button{
   transition-duration: 0.4s;
 }
 /* mouse over color fade and change */
-button:hover{
-    background-color: #4CAF50; /* Green */
-    color: white;
+button:hover {
+  background-color: #4caf50; /* Green */
+  color: white;
 }
- 
+
 .wrapper {
-    text-align: center;
+  text-align: center;
 }
 /* hide end screen until finish */
-.hide{
-    display: none;
+.hide {
+  display: none;
 }
-
-
-
 
 /* #count {
     position: relative;
@@ -72,7 +67,7 @@ button:hover{
 } */
 /* slide container */
 /* .slide{ */
-    /* font-size: 30px;
+/* font-size: 30px;
     font-weight: bold;
     text-align: center;
     position: relative;
@@ -100,4 +95,4 @@ button:hover{
     position: relative;
     height: 150px;
     
-} */ 
+} */
