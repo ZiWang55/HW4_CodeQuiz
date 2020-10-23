@@ -14,4 +14,14 @@ let questions = [
     choices: ["Angular", "jQuery", "RequireJS", "ESLint"],
     answer: "ESLint",
   },
+  {
+    title: "Which symbol is used for comments in Javascript?",
+    choices: ["//", "/*", "Line", "Comment"],
+    answer: "//",
+  },
+  {
+    title: "What are all the looping structures in Javascript?",
+    choices: ["For", "While", "do-while loops"],
+    answer: "For",
+  },
 ];

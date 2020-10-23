@@ -148,6 +148,9 @@ submitBtn.onclick = highScore;
 startBtn.onclick = start;
 
 initialsEl.onkeyup = checkForEnter;
+
+
+
 // OLD CODE, DID NOT ACHEIVE WHAT I WANTED AND WAS TOO COMPLICATED.
 //     // for each available answer
 //     for (letter in currentQuestion.answers) {

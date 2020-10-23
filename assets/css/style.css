@@ -1,11 +1,20 @@
 /* styling for all pages here */
 
-/* score styling */
-
-a:hover {
-  color: greenyellow;
-  transition-duration: 0.3s;
+/* font styling */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Corben', Georgia, Times, serif;
 }
+p, div {
+    font-family: 'Nobile', Helvetica, Arial, sans-serif;
+}
+
+/* highscores link styling */
+a:hover {
+    color: greenyellow;
+    transition-duration: 0.3s;
+  }
+
+/* scores styling */
 .scores {
   text-align: center;
   padding: 40px;
@@ -26,6 +35,7 @@ a:hover {
 body {
   background-color: lightgrey;
 }
+
 #startscreen {
   text-align: center;
   background-color: lightblue;
@@ -47,6 +57,7 @@ button {
   font-size: 16px;
   transition-duration: 0.4s;
 }
+
 /* mouse over color fade and change */
 button:hover {
   background-color: #4caf50; /* Green */
@@ -56,6 +67,7 @@ button:hover {
 .wrapper {
   text-align: center;
 }
+
 /* hide end screen until finish */
 .hide {
   display: none;

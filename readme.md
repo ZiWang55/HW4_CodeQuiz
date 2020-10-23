@@ -1,6 +1,10 @@
 ### Code-Quiz Website
 
-I created a timed code quiz with the ability to keep track of highscores. Scores are based on how many question you get correct and also how quickly you answer each question.
+I created a timed code quiz with the ability to keep track of highscores. Scores are based on how many question you get correct and also how quickly you answer each question. All you have to do is to press Start button to start game, and when finished type your name and it will show you the score.
+
+You can go as many times as you like it will list the scores and sorted in a decending order.
+
+There is also a highscores link to access the page to see recorded scores.
 
 ## Overview
 
@@ -8,7 +12,7 @@ I created a timed code quiz with the ability to keep track of highscores. Scores
 * Created javascript files for logic of the quiz, questions and highscores
 * Use of localStorage with JSON to store user name and score into highscores.html
 
-## Screenshots
+## Screenshot
 
 ## Installation
 
