@@ -9,10 +9,10 @@ p, div {
 }
 
 /* highscores link styling */
-a:hover {
-    color: greenyellow;
+/* a:hover {
+    color: #3c1874;
     transition-duration: 0.3s;
-  }
+  } */
 
 /* scores styling */
 .scores {
@@ -27,27 +27,28 @@ a:hover {
 .timer {
   text-align: center;
   font-weight: bold;
-  color: red;
+  color: #de354c;;
   font-size: 40px;
 }
-/*  */
 
+/*background style*/
 body {
-  background-color: lightgrey;
+  background: url(/assets/images/cream_dust/cream_dust.png) repeat 0 0;
 }
 
+/* start quiz screen cover */
 #startscreen {
   text-align: center;
-  background-color: lightblue;
-  padding: 100px;
+  background: url(/assets/images/cream_dust/cream_dust.png) repeat 0 0;
+  padding: 50px;
   border: lightgray 20px;
-  width: 600px;
+  width: 500px;
   margin: auto;
 }
 
 /* this structure was taken from w3schools example and personalized */
 button {
-  background-color: #008cba;
+  background-color: #3c1874;
   border: none;
   color: white;
   padding: 15px 32px;
@@ -60,8 +61,8 @@ button {
 
 /* mouse over color fade and change */
 button:hover {
-  background-color: #4caf50; /* Green */
-  color: white;
+  background-color: #932432; /* Green */
+  color: #f3f3f3;
 }
 
 .wrapper {
