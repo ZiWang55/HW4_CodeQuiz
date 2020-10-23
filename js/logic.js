@@ -68,11 +68,10 @@ function questionClick() {
 
     feedbackEl.textContent = "Wrong!";
   } else {
-
     feedbackEl.textContent = "Correct!";
   }
 
-  // flash feedback on page 
+  // flash feedback on page
   feedbackEl.setAttribute("class", "feedback");
   setTimeout(function () {
     feedbackEl.setAttribute("class", "feedback hide");
